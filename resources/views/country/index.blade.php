@@ -1,8 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+
     <div class="grid_3 grid_5">
-        <h3 class="head-top">Articles</h3>
+        <h3 class="head-top">Countries</h3>
         <div class="but_list">
             <div class="col-md-12 page_1">
                 <p>Add modifier classes to change the appearance of a badge.</p>
@@ -10,7 +11,7 @@
                     <thead>
                     <tr>
                         <th>Название страны</th>
-                        <th> Действия</th>
+                        <th> Cокращенное название</th>
                     </tr>
                     </thead>
                     <tbody>

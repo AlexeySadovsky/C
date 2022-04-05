@@ -27,3 +27,20 @@ Route::get('my-first-page', [App\Http\Controllers\MyController::class, 'myFuncti
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//===============================================Country==========================================
+
+Route::get('countries', [App\Http\Controllers\CountryController::class, 'index']);
+
+Route::get('countries/create', [App\Http\Controllers\CountryController::class, 'create']);
+
+Route::post('countries/store', [App\Http\Controllers\CountryController::class, 'store'])->name('admin.country');
+
+Route::get('countries/{id}/edit', [App\Http\Controllers\CountryController::class, 'edit'])->name('admin.country');
+
+Route::put('countries/edit/{id}/update', [App\Http\Controllers\CountryController::class, 'update'])
+    ->name('admin.update_country');
+
+Route::delete('countries/edit/{id}/delete', [App\Http\Controllers\CountryController::class, 'delete'])
+    ->name('admin.delete_country');

@@ -19,6 +19,8 @@ class CreateCountriesTable extends Migration
             $table->string('short name', 255)->nullable(true);
             $table->timestamps();
         });
+
+
     }
 
     /**

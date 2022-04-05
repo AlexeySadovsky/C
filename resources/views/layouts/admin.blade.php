@@ -215,11 +215,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                 </ul>
             </div>
-			</div>
+            </div>
+             </div>
         </nav>
-    @yield('content')
 		 <div id="page-wrapper" class="gray-bg dashbard-1">
-		</div>
+             @yield('content')
+         </div>
 		<div class="clearfix"> </div>
        </div>
 
