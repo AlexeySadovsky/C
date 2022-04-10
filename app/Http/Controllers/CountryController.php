@@ -17,15 +17,16 @@ class CountryController extends Controller
 
     public function create()
     {
-        return view('country.create');
+        $countries = Country::all();
+        return view('country.edit', ['countries' => $countries]);
     }
 
     public function store(Request $request)
     {
-        Country::query()->create($request->all());
+        Country::created($request);
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $id)
     {
         $countries = Country::query()->findOrFail($id);
         return view('country.edit', compact('countries'));
@@ -39,7 +40,7 @@ class CountryController extends Controller
 
     }
 
-    public function delete($id)
+    public function delete(Request $id)
     {
         $countries = Country::query()->findOrFail($id);
         $countries->delete();

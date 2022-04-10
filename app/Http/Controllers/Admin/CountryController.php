@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
@@ -14,7 +15,10 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $country = Country::all();
+        return view('country.index', [
+            'country' => $country
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
+        return view('country.create');
     }
 
     /**
@@ -35,16 +39,16 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Country::query()->create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Country $country)
     {
         //
     }
@@ -52,34 +56,35 @@ class CountryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Country $country)
     {
-        //
+        return view('country.edit', compact('country'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Country $country)
     {
-        //
+        $country->fill($request->all());
+        $country->save();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Country $country)
     {
-        //
+        $country->delete();
     }
 }
