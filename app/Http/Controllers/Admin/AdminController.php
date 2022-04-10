@@ -11,7 +11,8 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    public function modelView(){
+    public function dashboard(){
 
+        return view('admin.main');
     }
 }

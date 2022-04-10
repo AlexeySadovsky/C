@@ -15,12 +15,10 @@ class CreateCountriesTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->nullable(false);
-            $table->string('short name', 255)->nullable(true);
+            $table->string('name')->default('Беларусь');
+            $table->string('short name')->default('by');
             $table->timestamps();
         });
-
-
     }
 
     /**

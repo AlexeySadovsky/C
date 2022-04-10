@@ -10,36 +10,38 @@ class CountryController extends Controller
     public function index()
     {
         $countries = Country::all();
-        return view('country.index', ['countries' => $countries]);
+        return view('country.index', [
+            'countries' => $countries
+        ]);
     }
 
     public function create()
     {
-        return view('country.edit');
+        return view('country.create');
     }
 
     public function store(Request $request)
     {
-        Country::created($request);
+        Country::query()->create($request->all());
     }
 
-    public function edit(Request $id)
+    public function edit(Request $request, $id)
     {
-        $country = Country::findOrFail($id);
-        return view('country.edit', compact('country'));
+        $countries = Country::query()->findOrFail($id);
+        return view('country.edit', compact('countries'));
     }
 
     public function update(Request $request, $id)
     {
-        $country = Country::findOrFail($id);
-        $country->fill($request->all());
-        $country->save();
+        $countries = Country::query()->findOrFail($id);
+        $countries->fill($request->all());
+        $countries->save();
 
     }
 
-    public function delete(Request $id)
+    public function delete($id)
     {
-        $country = Country::findOrFail($id);
-        $country->delete();
+        $countries = Country::query()->findOrFail($id);
+        $countries->delete();
     }
 }

@@ -17,7 +17,7 @@
                     <tbody>
                     @foreach($countries as $country)
                         <tr>
-                            <td>{{$country->name}}--{{$country->abbr}}</td>
+                            <td>{{$country->id}}--{{$country->name}}--{{$country->abbr}}</td>
                             <td>
                                 <a href="{{route('admin.edit_country', ['id' => $country->id ]) }}" class="btn btn-lg btn-info">Редактировать</a>
                                 <form method="POST" action="{{route('admin.delete_country', ['id' => $country->id ]) }}">

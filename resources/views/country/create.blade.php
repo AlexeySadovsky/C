@@ -2,6 +2,7 @@
 
 
 @section('content')
+
     <div class="grid-form1">
         <h3 id="forms-example" class="">Добавление страны</h3>
         <form action="{{ route('admin.store_country') }}" method="POST" enctype="multipart/form-data">
