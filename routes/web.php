@@ -15,19 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('login', [\App\Http\Controllers\AuthController::class, 'login']);
 Route::post('auth', [\App\Http\Controllers\AuthController::class, 'auth']);
-Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
 Route::get('microview', [\App\Http\Controllers\Admin\AdminController::class, 'microView']);
 
 Route::get('my-first-page', [App\Http\Controllers\MyController::class, 'myFunction']);
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('shop', [\App\Http\Controllers\SiteController::class, 'index']);
 
 //===============================================Country==========================================
 
@@ -47,3 +45,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('country', \App\Http\Controllers\Admin\CountryController::class)
 ->except('show');
+
+Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class)
+    ->except('show');
+
+Route::get('admin', [\App\Http\Controllers\Admin\AdminController::class, 'dashboard']);
+Route::resource('product', \App\Http\Controllers\ProductController::class)->except('show');
+
